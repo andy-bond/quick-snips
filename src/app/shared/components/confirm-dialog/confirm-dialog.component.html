@@ -1,0 +1,13 @@
+<div class="toolbar flex flex-row align-items-center px-1 py-0.5">
+  <div class="flex-auto">{{ data.title }}</div>
+  <button mat-icon-button tabindex="-1" (click)="close()">
+    <mat-icon svgIcon="close"></mat-icon>
+  </button>
+</div>
+<div class="flex flex-auto overflow-auto p-1">
+  {{ data.message }}
+</div>
+<div class="actions flex flex-row justify-content-end p-1">
+  <button mat-stroked-button (click)="close()">CANCEL</button>
+  <button mat-stroked-button (click)="confirm()">CONFIRM</button>
+</div>

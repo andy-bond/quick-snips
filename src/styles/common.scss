@@ -1,0 +1,200 @@
+@use './mixins.scss' as mixins;
+
+/* Global CSS Variables (these don't change with themes) */
+:root {
+  // Typography
+  --font-sans-serif: 'Roboto', 'Helvetica Neue', 'Segoe UI', sans-serif;
+  --font-serif: 'Roboto Slab', 'Georgia', serif;
+  --font-monospace: 'Roboto Mono', 'Consolas', monospace;
+
+  // Transparency
+  --color-transparent-dark: rgba(0, 0, 0, 0.12);
+  --color-translucent: rgba(158, 158, 158, 0.12);
+  --color-transparent-light: rgba(255, 255, 255, 0.12);
+
+  // Transitions
+  --transition-default-timing: 500ms;
+  --transition-default-curve: cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Values
+  --border-radius: 12px;
+
+  // Scrollbar
+  --scrollbar-thumb: var(--color-gray);
+  --scrollbar-background: var(--color-divider);
+  --scrollbar-size: 10px;
+}
+
+/* Position */
+
+.center {
+  display: grid;
+  place-content: center;
+}
+
+/* Size */
+
+.h-full {
+  height: 100%;
+}
+
+.h-80 {
+  height: 80%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* Border */
+
+.rounded {
+  border-radius: var(--border-radius);
+}
+
+/* Divider */
+
+.divider-x {
+  border-top: 1px solid var(--color-divider);
+}
+
+.divider-y {
+  border-right: 1px solid var(--color-divider);
+}
+
+/* Overflow */
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Position */
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+/* Flex */
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* Gap */
+
+.gap-2 {
+  gap: 2em;
+}
+
+.gap-1 {
+  gap: 1em;
+}
+
+.gap-0\.5 {
+  gap: 0.5em;
+}
+
+/* Alignment */
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+/* Margin */
+
+@include mixins.generate-sided(margin, m, 0.5, 1, 2);
+
+/* Padding */
+
+@include mixins.generate-sided(padding, p, 0.5, 1, 2);
+
+/* Reusable (older) */
+
+.overflow-container {
+  height: 100%;
+  overflow: auto;
+}
+
+.fully-center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+/* ScrollBar (applies to every scrollbar) */
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  max-height: var(--scrollbar-size);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--scrollbar-background);
+}
+
+::-webkit-resizer {
+  background-color: var(--scrollbar-background);
+}
+
+/* Help Module (innerHTML) */
+
+mark {
+  background-color: var(--color-transparent-dark);
+  color: inherit;
+  padding: 2px 4px;
+  border-radius: var(--border-radius);
+}
+
+/* Title Bar */
+
+app-title-bar.development {
+  color: var(--color-text-warning);
+  background-color: var(--color-warning);
+}

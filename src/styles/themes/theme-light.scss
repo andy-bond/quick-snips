@@ -1,0 +1,13 @@
+@use '~@angular/material' as mat;
+@import './theme-base';
+
+.theme-light {
+  $primary: mat.define-palette(mat.$deep-purple-palette);
+  $accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
+  $warning: $default-warning;
+  $theme: mat.define-light-theme($primary, $accent, $warning);
+  @include theming($theme);
+
+  // Chips
+  --chip-background: #e0e0e0;
+}

@@ -1,0 +1,114 @@
+<ng-container *ngLet="snippetsStore.filteredSnippets$ | async as snippets">
+  <ng-container *ngLet="snippetsStore.tags$ | async as tags">
+    <mat-sidenav-container class="w-full flex-auto">
+      <mat-sidenav
+        class="pt-0.5"
+        #snav
+        [mode]="mode"
+        [opened]="opened"
+        fixedTopGap="64"
+      >
+        <div *ngIf="tags.length > 0; else noTags" class="flex flex-col">
+          <button
+            *ngFor="let tag of tags"
+            class="tag-btn"
+            (click)="search.searchControl.patchValue('#' + tag)"
+          >
+            #{{ tag }}
+          </button>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content class="p-1">
+        <div
+          class="
+            flex flex-row
+            w-full
+            justify-content-center
+            align-items-center
+            gap-1
+            px-2
+            mb-1
+          "
+        >
+          <button
+            mat-mini-fab
+            color="undefined"
+            (click)="toggle()"
+            matTooltip="Show/Hide Tags"
+          >
+            <mat-icon svgIcon="menu"></mat-icon>
+          </button>
+          <app-snippet-search
+            #search
+            class="flex-auto"
+            (search)="snippetsStore.search($event)"
+          ></app-snippet-search>
+          <button
+            mat-mini-fab
+            color="primary"
+            (click)="open()"
+            matTooltip="New Snippet"
+          >
+            <mat-icon svgIcon="plus"></mat-icon>
+          </button>
+        </div>
+        <ng-container
+          *ngIf="(snippetsStore.loading$ | async) === false; else loading"
+        >
+          <div
+            class="snippets-grid pb-1"
+            [@cardAnimation]="snippets.length"
+            *ngIf="snippets && snippets.length > 0; else noSnippets"
+          >
+            <app-snippet-card
+              *ngFor="let snippet of snippets; trackBy: identify"
+              [snippet]="snippet"
+              (click)="open(snippet)"
+              (pinClicked)="pin(snippet)"
+              (removeClicked)="remove(snippet)"
+              (tagClicked)="search.searchControl.patchValue($event)"
+              (copyClicked)="copy(snippet)"
+            ></app-snippet-card>
+          </div>
+        </ng-container>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #loading>
+  <div
+    class="flex flex-col flex-auto align-items-center justify-content-center"
+  >
+    <mat-progress-spinner
+      mode="indeterminate"
+      color="accent"
+    ></mat-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #noSnippets>
+  <div
+    class="
+      h-full
+      flex flex-col flex-auto
+      align-items-center
+      justify-content-center
+    "
+  >
+    <h3 class="no-snippets-text">No Snippets</h3>
+  </div>
+</ng-template>
+
+<ng-template #noTags>
+  <div
+    class="
+      h-full
+      flex flex-col flex-auto
+      align-items-center
+      justify-content-center
+    "
+  >
+    <h3 class="no-snippets-text">No Tags</h3>
+  </div>
+</ng-template>

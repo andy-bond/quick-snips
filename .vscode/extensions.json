@@ -1,0 +1,23 @@
+{
+  // See http://go.microsoft.com/fwlink/?LinkId=827846
+  // for the documentation about the extensions.json format
+  "recommendations": [
+    // General Recommendations
+    "anseki.vscode-color", // Color Picker
+    "editorconfig.editorconfig", // EditorConfig Support
+    "ms-vsliveshare.vsliveshare", // Live Share
+    "eg2.vscode-npm-script", // npm Hover Tooltips
+    "esbenp.prettier-vscode", // File Formatter
+    "gruntfuggly.todo-tree", // Track Tasks and Todos
+    "britesnow.vscode-toggle-quotes", // Cycle Quotes between single, double, backtick
+    "msjsdiag.debugger-for-chrome", // Open Debugger in Chrome
+    // Angular Recommendations
+    "angular.ng-template", // Autocomplete in Template
+    "cyrilletuzi.angular-schematics", // Quickly scaffold components, modules, etc
+    // Linters
+    "dbaeumer.vscode-eslint", // Lint JS files
+    // Themes
+    "pkief.material-icon-theme", // Material Icons
+    "zhuangtongfa.material-theme", // One Dark Pro Theme
+  ]
+}

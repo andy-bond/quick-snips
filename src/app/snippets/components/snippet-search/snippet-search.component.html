@@ -1,0 +1,16 @@
+<mat-icon class="search-icon" svgIcon="magnify"></mat-icon>
+<input
+  #input
+  type="text"
+  placeholder="Search..."
+  [formControl]="searchControl"
+/>
+<button
+  *ngIf="searchControl.value.length > 0"
+  class="clear-btn"
+  mat-icon-button
+  matTooltip="Clear Search"
+  (click)="searchControl.patchValue('')"
+>
+  <mat-icon svgIcon="close"></mat-icon>
+</button>

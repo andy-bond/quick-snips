@@ -1,0 +1,49 @@
+@use '/src/styles/mixins.scss' as mixins;
+
+:host {
+  background-color: var(--color-background);
+
+  @include mixins.default-transition(background-color);
+}
+
+mat-sidenav {
+  width: 200px;
+}
+
+.snippets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1em;
+  width: 100%;
+
+  @media screen and (max-width: 599px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.no-snippets-text {
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.tag-btn {
+  font-size: 1em;
+  text-align: left;
+  padding: 1em;
+  background-color: transparent;
+  color: var(--color-text);
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: var(--font-monospace);
+
+  + .tag-btn {
+    border-top: 1px solid var(--color-divider);
+  }
+
+  &:hover,
+  &:focus-within {
+    background-color: var(--color-divider);
+  }
+}

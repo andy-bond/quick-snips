@@ -1,0 +1,21 @@
+@use '/src/styles/mixins.scss' as mixins;
+
+:host {
+  height: 24px;
+  max-height: 24px;
+  background-color: var(--color-status-bar);
+  font-size: 14px;
+  line-height: 1em;
+  @include mixins.default-transition(background-color, color);
+}
+
+mat-icon {
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+  margin-right: 0.3em;
+}
+
+.orange {
+  color: var(--color-orange-darker);
+}

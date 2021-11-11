@@ -1,0 +1,42 @@
+@use '/src/styles/mixins.scss' as mixins;
+
+:host {
+  background-color: var(--color-card);
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  min-width: 50%;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+
+  @include mixins.default-transition(background-color, color, box-shadow);
+
+  &:focus-within {
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%),
+      0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+  }
+}
+
+.search-icon,
+.clear-btn {
+  flex-shrink: 0;
+}
+
+.search-icon {
+  margin: 0.5em 1em;
+}
+
+.clear-btn {
+  margin-right: 1em;
+}
+
+input {
+  font-size: 1em;
+  background-color: inherit;
+  border: none;
+  height: 100%;
+  line-height: 100%;
+  width: 100%;
+  color: var(--color-text);
+  outline: none;
+  margin: 1em 0;
+}

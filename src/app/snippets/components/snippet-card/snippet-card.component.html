@@ -1,0 +1,39 @@
+<button
+  id="pin-btn"
+  mat-icon-button
+  (click)="pin($event)"
+  matTooltip="Toggle Pinned"
+  [class.pinned]="snippet.pinned"
+>
+  <mat-icon [svgIcon]="snippet.pinned ? 'pin' : 'pin-outline'"></mat-icon>
+</button>
+
+<h3 class="snippet-title">{{ snippet.title }}</h3>
+<div class="snippet-body flex-auto" [innerHtml]="snippet.body | safe"></div>
+<div class="snippet-tags flex flex-row align-items-center flex-wrap gap-0.5">
+  <div
+    class="tag"
+    *ngFor="let tag of snippet.tags"
+    (click)="tagged($event, tag)"
+  >
+    #{{ tag | lowercase }}
+  </div>
+</div>
+<div class="utilities flex flex-row align-items-center gap-1">
+  <button
+    id="copy-btn"
+    mat-icon-button
+    (click)="copy($event)"
+    matTooltip="Copy Snippet"
+  >
+    <mat-icon svgIcon="content-copy"></mat-icon>
+  </button>
+  <button
+    id="remove-btn"
+    mat-icon-button
+    (click)="remove($event)"
+    matTooltip="Remove Snippet"
+  >
+    <mat-icon svgIcon="delete"></mat-icon>
+  </button>
+</div>

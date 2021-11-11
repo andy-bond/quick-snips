@@ -1,0 +1,49 @@
+@use '/src/styles/mixins.scss' as mixins;
+
+/* Dialog */
+
+.custom-dialog {
+  .mat-dialog-container {
+    padding: 0;
+    overflow: auto;
+  }
+}
+
+/* Snackbar */
+
+snack-bar-container.mat-snack-bar-container.custom-snackbar {
+  padding: 0;
+}
+
+snack-bar-container.mat-snack-bar-container.snackbar-success {
+  background-color: var(--color-success);
+  color: var(--color-text-success);
+
+  .mat-simple-snackbar-action {
+    color: inherit;
+  }
+}
+
+snack-bar-container.mat-snack-bar-container.snackbar-warning {
+  background-color: var(--color-warning);
+  color: var(--color-text-warning);
+
+  .mat-simple-snackbar-action {
+    color: inherit;
+  }
+}
+
+/* Card */
+
+mat-card.rm-pad {
+  padding: 0;
+}
+
+/* Transitions */
+
+mat-card,
+mat-toolbar,
+mat-sidenav-container,
+mat-sidenav {
+  @include mixins.default-transition(background-color, color);
+}

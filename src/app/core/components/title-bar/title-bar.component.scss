@@ -1,0 +1,36 @@
+@use '/src/styles/mixins.scss' as mixins;
+
+:host {
+  max-height: 48px;
+  background-color: var(--color-primary-darker);
+  color: var(--color-text-primary-darker);
+  @include mixins.default-transition(background-color, color);
+}
+
+mat-icon {
+  --size: 20px;
+  width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  font-size: var(--size);
+}
+
+.title {
+  font-size: 20px;
+  color: inherit;
+  text-decoration: none;
+  font-family: var(--font-serif);
+  align-self: flex-start;
+  letter-spacing: 2px;
+}
+
+.square-btn {
+  height: 48px;
+  width: 48px;
+  border-radius: 0;
+  background-color: var(--color-transparent-dark);
+
+  + .square-btn {
+    border-left: 1px solid var(--color-divider);
+  }
+}

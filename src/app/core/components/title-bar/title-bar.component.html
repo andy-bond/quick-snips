@@ -1,0 +1,19 @@
+<div class="title-container flex flex-row align-items-center flex-auto ml-1">
+  <a class="title flex flex-row align-items-center mr-0.5" routerLink="/">
+    <mat-icon svgIcon="scissors-cutting"></mat-icon>
+    <div class="ml-0.5">
+      {{ appTitle }}
+    </div>
+  </a>
+  <app-help-button key="app"></app-help-button>
+</div>
+<button
+  class="square-btn"
+  mat-icon-button
+  (click)="theme.toggle()"
+  matTooltip="Toggle Theme"
+>
+  <mat-icon
+    [svgIcon]="(theme.dark$ | async) ? 'weather-night' : 'weather-sunny'"
+  ></mat-icon>
+</button>

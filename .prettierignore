@@ -1,0 +1,7 @@
+# Ignore build artifacts:
+build
+coverage
+e2e
+node_modules
+dist
+.vscode

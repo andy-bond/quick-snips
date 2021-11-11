@@ -1,0 +1,105 @@
+@use '/src/styles/mixins.scss' as mixins;
+
+:host {
+  position: relative;
+  color: var(--color-text);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--border-radius);
+  outline: none;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+
+  @include mixins.default-transition(color, border-color, box-shadow);
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--color-text);
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%),
+      0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+
+    button {
+      opacity: 1 !important;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+h3 {
+  font-family: var(--font-serif);
+  padding-right: 3em;
+}
+
+.snippet-tags {
+  padding-right: 3em;
+  min-height: 1em;
+}
+
+.snippet-body {
+  width: 100%;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 8;
+}
+
+.tag {
+  font-family: var(--font-monospace);
+  color: var(--color-text-secondary);
+  font-size: 0.8em;
+  text-decoration: underline;
+  cursor: pointer;
+  @include mixins.default-transition(color);
+}
+
+button {
+  opacity: 0;
+  color: var(--color-text-secondary);
+
+  --size: 32px;
+
+  height: var(--size);
+  width: var(--size);
+  line-height: var(--size);
+
+  mat-icon {
+    --size: 18px;
+
+    height: var(--size);
+    width: var(--size);
+    line-height: var(--size);
+  }
+
+  @include mixins.default-transition(color, background-color, opacity);
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+    background-color: var(--color-card);
+  }
+}
+
+.utilities {
+  justify-content: flex-end;
+}
+
+#remove-btn {
+  &:hover {
+    color: var(--color-warning);
+    background-color: var(--color-divider);
+  }
+}
+
+#pin-btn {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+
+  &.pinned {
+    opacity: 1;
+  }
+}

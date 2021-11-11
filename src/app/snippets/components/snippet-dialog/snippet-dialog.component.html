@@ -1,0 +1,35 @@
+<form class="h-full flex flex-col gap-1 p-1" [formGroup]="form">
+  <input
+    class="title-input"
+    type="text"
+    formControlName="title"
+    placeholder="Title"
+  />
+  <textarea
+    class="body-textarea"
+    type="text"
+    placeholder="Type your snippet here..."
+    formControlName="body"
+    cdkTextareaAutosize
+    cdkAutosizeMinRows="5"
+  ></textarea>
+  <mat-chip-list #chipList aria-label="Tag selection" formControlName="tags">
+    <mat-chip
+      *ngFor="let tag of tags?.value"
+      [selectable]="false"
+      [removable]="true"
+      (removed)="remove(tag)"
+    >
+      {{ tag }}
+      <mat-icon matChipRemove svgIcon="close-circle"></mat-icon>
+    </mat-chip>
+    <input
+      class="tag-input"
+      placeholder="New Tag..."
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="true"
+      (matChipInputTokenEnd)="add($event)"
+    />
+  </mat-chip-list>
+</form>

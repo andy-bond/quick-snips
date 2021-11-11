@@ -1,0 +1,55 @@
+.toolbar {
+  font-size: 20px;
+  min-height: 48px;
+  background-color: var(--color-primary-darker);
+  color: var(--color-text-primary-darker);
+  font-family: var(--font-serif);
+}
+
+form {
+  font-size: 1em;
+}
+
+.title-input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-serif);
+  font-size: 1.5em;
+  color: var(--color-text);
+}
+
+.body-textarea {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  line-height: 1.5em;
+  font-size: 1em;
+  color: var(--color-text);
+  font-family: var(--font-sans-serif);
+}
+
+.tag-input {
+  background-color: var(--chip-background);
+  border: none;
+  border-radius: 16px;
+  padding: 7px 12px;
+  min-height: 32px;
+  outline: none;
+  font-size: 14px;
+  color: var(--color-text);
+  caret-color: var(--color-text);
+
+  width: 15ch;
+  margin: unset;
+  flex: unset;
+}
+
+.actions {
+  border-top: 1px solid var(--color-divider);
+
+  button + button {
+    margin-left: 1em;
+  }
+}

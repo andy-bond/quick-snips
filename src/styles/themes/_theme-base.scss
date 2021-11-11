@@ -1,0 +1,81 @@
+@use '~@angular/material' as mat;
+@include mat.core();
+
+// Default Colors
+// If you want separate colors per theme, change those in the theme's stylesheet
+$default-primary: mat.define-palette(mat.$green-palette);
+$default-accent: mat.define-palette(mat.$teal-palette, A200, A100, A400);
+$default-warning: mat.define-palette(mat.$red-palette);
+$default-success: mat.define-palette(mat.$light-green-palette);
+
+$orange: mat.define-palette(mat.$orange-palette);
+$gray: mat.define-palette(mat.$gray-palette);
+
+// Default transparency used for partially transparent colors
+$transparency: 0.5;
+
+// NOTE: This mixin should be called for every available theme
+// Also theme custom material components here (if any)
+@mixin theming($theme, $success: $default-success) {
+  @include mat.all-component-themes($theme);
+
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warning: map-get($theme, warn);
+  @include generate-css-variables('primary', $primary, $transparency);
+  @include generate-css-variables('accent', $accent, $transparency);
+  @include generate-css-variables('warning', $warning, $transparency);
+  @include generate-css-variables('success', $success, $transparency);
+  @include generate-css-variables('gray', $gray, $transparency);
+  @include generate-css-variables('orange', $orange, $transparency);
+
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  --color-text: #{mat.get-color-from-palette($foreground, text)};
+  --color-text-secondary: #{mat.get-color-from-palette(
+      $foreground,
+      secondary-text
+    )};
+  --color-background: #{mat.get-color-from-palette($background, background)};
+  --color-divider: #{mat.get-color-from-palette($foreground, divider)};
+  --color-card: #{mat.get-color-from-palette($background, card)};
+  --color-status-bar: #{mat.get-color-from-palette($background, status-bar)};
+  --color-toolbar: #{mat.get-color-from-palette($background, app-bar)};
+}
+
+// NOTE: If you want more variables to be automatically generated from a color - add them here.
+// Generate Variables from a Color
+@mixin generate-css-variables($name, $color, $transparency: 0.5) {
+  --color-text-#{$name}: #{mat.get-color-from-palette(
+      $color,
+      'default-contrast'
+    )};
+  --color-#{$name}: #{mat.get-color-from-palette($color, 'default')};
+  --color-#{$name}-transparent: #{mat.get-color-from-palette(
+      $color,
+      'default',
+      $transparency
+    )};
+
+  --color-text-#{$name}-darker: #{mat.get-color-from-palette(
+      $color,
+      'darker-contrast'
+    )};
+  --color-#{$name}-darker: #{mat.get-color-from-palette($color, 'darker')};
+  --color-#{$name}-darker-transparent: #{mat.get-color-from-palette(
+      $color,
+      'darker',
+      $transparency
+    )};
+
+  --color-text-#{$name}-lighter: #{mat.get-color-from-palette(
+      $color,
+      'lighter-contrast'
+    )};
+  --color-#{$name}-lighter: #{mat.get-color-from-palette($color, 'lighter')};
+  --color-#{$name}-lighter-transparent: #{mat.get-color-from-palette(
+      $color,
+      'lighter',
+      $transparency
+    )};
+}
