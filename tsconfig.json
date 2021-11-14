@@ -18,10 +18,9 @@
     "module": "es2020",
     "lib": ["es2018", "dom"],
     "paths": {
-      "@shared/*": ["src/app/shared/*"],
       "@environments/*": ["src/environments/*"],
       "@core/*": ["src/app/core/*"],
-      "@help/*": ["src/app/help/*"],
+      "@shared/*": ["src/app/shared/*"],
       "@snippets/*": ["src/app/snippets/*"]
     },
     "resolveJsonModule": true

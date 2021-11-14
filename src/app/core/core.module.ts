@@ -10,8 +10,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { HelpModule } from '@help/help.module';
-
 import {
   TitleBarComponent,
   LayoutComponent,
@@ -34,8 +32,6 @@ import { JsonDateInterceptor } from './interceptors';
     MatButtonModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
-    // app
-    HelpModule,
   ],
   exports: [TitleBarComponent, LayoutComponent, StatusBarComponent],
   providers: [

@@ -78,7 +78,8 @@ export class SnippetDialogComponent implements OnInit {
 
   add(event: MatChipInputEvent): void {
     const input = event.chipInput?.inputElement;
-    const tag = event.value?.toLowerCase().trim();
+    let tag = event.value?.toLowerCase().trim();
+    tag = tag.startsWith('#') ? tag.substring(1) : tag;
     const index = this.tags?.value.indexOf(tag);
 
     // Add Tag
@@ -90,6 +91,7 @@ export class SnippetDialogComponent implements OnInit {
     // Reset the input value
     if (input) {
       input.value = '';
+      input.focus();
     }
   }
 

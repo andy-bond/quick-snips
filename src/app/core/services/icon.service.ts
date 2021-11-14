@@ -10,7 +10,6 @@ export class IconService {
     private sanitizer: DomSanitizer,
     private iconRegistry: MatIconRegistry
   ) {
-    // TODO: Any icons placed under assets/icons will be available to you as the name of the icon file
     this.iconRegistry.addSvgIconResolver((name, namespace) => {
       return namespace === ''
         ? this.sanitizer.bypassSecurityTrustResourceUrl(

@@ -25,6 +25,12 @@
   &:hover {
     cursor: pointer;
   }
+
+  @media (hover: none) {
+    button {
+      opacity: 1 !important;
+    }
+  }
 }
 
 h3 {

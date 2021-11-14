@@ -25,7 +25,6 @@ import {
   mdiWeatherSunny,
 } from '@mdi/js';
 
-/* TODO: Update Icons Here */
 export const ICONS = [
   { name: 'menu', path: mdiMenu },
   { name: 'alert', path: mdiAlert },
