@@ -1,6 +1,6 @@
 {
   "name": "quick-snips",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "start:local": "ng serve",
     "start:dev": "ng serve -c=dev",
