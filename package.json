@@ -5,7 +5,7 @@
     "start:local": "ng serve",
     "start:dev": "ng serve -c=dev",
     "build:dev": "ng build -c=production,dev",
-    "build:prod": "ng build -c=production --base-href=./",
+    "build:prod": "ng build -c=production --base-href=/apps/quick-snips/",
     "analyze": "ng build -c=production,analyze && npx source-map-explorer dist/**/**/*.js",
     "format:check": "npm run ~format -- --list-different \"./**/*{.html,.ts,.js,.json,.css,.scss}\"",
     "format:write": "npm run ~format -- --write \"./**/*{.html,.ts,.js,.json,.css,.scss}\"",
