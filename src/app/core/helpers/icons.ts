@@ -6,6 +6,7 @@ import {
   mdiChevronRight,
   mdiClose,
   mdiCloseCircle,
+  mdiCodeTags,
   mdiContentCopy,
   mdiDelete,
   mdiFlag,
@@ -50,4 +51,5 @@ export const ICONS = [
   { name: 'pin', path: mdiPin },
   { name: 'pin-outline', path: mdiPinOutline },
   { name: 'content-copy', path: mdiContentCopy },
+  { name: 'code-tags', path: mdiCodeTags },
 ];

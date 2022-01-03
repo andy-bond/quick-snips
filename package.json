@@ -1,11 +1,11 @@
 {
   "name": "quick-snips",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "start:local": "ng serve",
     "start:dev": "ng serve -c=dev",
     "build:dev": "ng build -c=production,dev",
-    "build:prod": "ng build -c=production",
+    "build:prod": "ng build -c=production --base-href=./",
     "analyze": "ng build -c=production,analyze && npx source-map-explorer dist/**/**/*.js",
     "format:check": "npm run ~format -- --list-different \"./**/*{.html,.ts,.js,.json,.css,.scss}\"",
     "format:write": "npm run ~format -- --write \"./**/*{.html,.ts,.js,.json,.css,.scss}\"",
